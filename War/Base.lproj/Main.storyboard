@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="VerdanaBold.ttf">
+            <string>Verdana-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -110,6 +115,14 @@
                                 <color key="textColor" red="0.99681347608566284" green="0.99207323789596558" blue="0.99195986986160278" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cba-DZ-F7F">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Har-h3-EvN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -122,6 +135,7 @@
                             <constraint firstItem="AGa-UJ-JgD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="9L6-33-p3o"/>
                             <constraint firstItem="Qk5-Rj-VqM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="FCZ-7R-Hkj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AGa-UJ-JgD" secondAttribute="trailing" constant="20" id="HKD-Tv-agU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cba-DZ-F7F" secondAttribute="bottom" id="Hdw-iN-a80"/>
                             <constraint firstItem="AGa-UJ-JgD" firstAttribute="top" secondItem="Ntm-Q1-xUS" secondAttribute="bottom" constant="60" id="Hwz-cW-2ML"/>
                             <constraint firstItem="Ntm-Q1-xUS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="MJQ-kD-qM8"/>
                             <constraint firstItem="Ntm-Q1-xUS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ORS-la-WtP"/>
@@ -132,10 +146,13 @@
                             <constraint firstItem="AGa-UJ-JgD" firstAttribute="top" secondItem="efv-bg-hNw" secondAttribute="bottom" constant="8" id="ZKD-kd-RdI"/>
                             <constraint firstItem="9sJ-XB-PeI" firstAttribute="top" secondItem="AGa-UJ-JgD" secondAttribute="bottom" constant="8" id="dgB-eR-R5u"/>
                             <constraint firstItem="QBB-GP-oXH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dzI-AY-It0"/>
+                            <constraint firstItem="Cba-DZ-F7F" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eKk-qc-xSU"/>
                             <constraint firstItem="QBB-GP-oXH" firstAttribute="top" secondItem="Ntm-Q1-xUS" secondAttribute="bottom" constant="40" id="fKP-hr-vik"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qk5-Rj-VqM" secondAttribute="trailing" id="g8R-lR-Y7p"/>
                             <constraint firstItem="CNh-Td-jw2" firstAttribute="centerX" secondItem="SfD-c8-UQL" secondAttribute="centerX" id="hHQ-8u-rvv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cba-DZ-F7F" secondAttribute="trailing" id="lHx-rD-Zhq"/>
                             <constraint firstItem="AGa-UJ-JgD" firstAttribute="top" secondItem="Ntm-Q1-xUS" secondAttribute="bottom" constant="60" id="nUh-Hb-K3Z"/>
+                            <constraint firstItem="Cba-DZ-F7F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nuV-ZJ-yn1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QBB-GP-oXH" secondAttribute="bottom" constant="103" id="oGJ-nI-Ysa"/>
                             <constraint firstItem="Qk5-Rj-VqM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="p9D-qC-FPs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QBB-GP-oXH" secondAttribute="trailing" constant="50" id="ryR-OH-Lg0"/>
@@ -172,17 +189,69 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="0jB-Up-X4A"/>
                     <connections>
                         <outlet property="dealBtn" destination="QBB-GP-oXH" id="JT8-Ey-73f"/>
                         <outlet property="leftCard" destination="SfD-c8-UQL" id="1Pn-Mj-be1"/>
                         <outlet property="leftScore" destination="9sJ-XB-PeI" id="bLI-5R-7bD"/>
+                        <outlet property="popUpView" destination="03a-9J-P7w" id="3R5-bF-5eZ"/>
                         <outlet property="rightCard" destination="ICz-Z4-u4p" id="J8q-Wk-lAw"/>
                         <outlet property="rightScore" destination="QJ3-x8-UNj" id="s82-bo-F9I"/>
+                        <outlet property="visualBlurView" destination="Cba-DZ-F7F" id="iqh-hQ-fcz"/>
+                        <outlet property="winnerName" destination="fN4-Pd-TYE" id="KOG-z5-Tdz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="03a-9J-P7w">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="170"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3A-uF-Vjn">
+                            <rect key="frame" x="0.0" y="120" width="300" height="50"/>
+                            <color key="backgroundColor" red="0.038697797805070877" green="0.61419194936752319" blue="0.97702270746231079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="N0x-Y3-9DV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="22"/>
+                            <color key="tintColor" red="0.026446251198649406" green="0.052190095186233521" blue="0.016777383163571358" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Play again!">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="playAgainBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y6q-DY-EsO"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner is:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vc-73-61Y">
+                            <rect key="frame" x="101" y="16" width="98" height="21"/>
+                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fN4-Pd-TYE">
+                            <rect key="frame" x="87.5" y="45" width="125" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="125" id="HY1-ek-ypq"/>
+                                <constraint firstAttribute="height" constant="50" id="Tha-UQ-ldw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.8048250440140845" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="k3A-uF-Vjn" firstAttribute="leading" secondItem="03a-9J-P7w" secondAttribute="leading" id="5fc-35-i24"/>
+                        <constraint firstAttribute="trailing" secondItem="k3A-uF-Vjn" secondAttribute="trailing" id="JWR-bX-vh1"/>
+                        <constraint firstItem="0vc-73-61Y" firstAttribute="top" secondItem="IhG-Dw-UZD" secondAttribute="top" constant="16" id="Noh-E6-OQz"/>
+                        <constraint firstItem="fN4-Pd-TYE" firstAttribute="top" secondItem="0vc-73-61Y" secondAttribute="bottom" constant="8" id="NrT-af-prY"/>
+                        <constraint firstItem="fN4-Pd-TYE" firstAttribute="centerX" secondItem="03a-9J-P7w" secondAttribute="centerX" id="QXF-N9-77g"/>
+                        <constraint firstAttribute="bottom" secondItem="k3A-uF-Vjn" secondAttribute="bottom" id="Yub-6F-wBo"/>
+                        <constraint firstItem="0vc-73-61Y" firstAttribute="centerX" secondItem="03a-9J-P7w" secondAttribute="centerX" id="zad-4a-Hgq"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="IhG-Dw-UZD"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="133.59999999999999" y="168.6656671664168"/>
+            <point key="canvasLocation" x="472.80000000000001" y="168.6656671664168"/>
         </scene>
     </scenes>
     <resources>
